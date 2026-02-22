@@ -136,3 +136,75 @@ function recommendFertilizer() {
 
     document.getElementById("result").innerHTML = result;
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Fertilizer Recommendation</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f9f2;
+            text-align: center;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>AI Fertilizer Recommendation System</h2>
+
+    <input type="number" id="nitrogen" placeholder="Nitrogen (N)" required>
+    <input type="number" id="phosphorus" placeholder="Phosphorus (P)" required>
+    <input type="number" id="potassium" placeholder="Potassium (K)" required>
+    <input type="number" step="0.1" id="ph" placeholder="Soil pH" required>
+
+    <select id="crop">
+        <option value="">Select Crop</option>
+        <option value="rice">Rice</option>
+        <option value="wheat">Wheat</option>
+        <option value="maize">Maize</option>
+        <option value="cotton">Cotton</option>
+        <option value="sugarcane">Sugarcane</option>
+    </select>
+
+    <button onclick="recommendFertilizer()">Get Recommendation</button>
+
+    <div id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
