@@ -1,0 +1,50 @@
+function recommendFertilizer() {
+
+    let n = parseInt(document.getElementById("nitrogen").value);
+    let p = parseInt(document.getElementById("phosphorus").value);
+    let k = parseInt(document.getElementById("potassium").value);
+    let ph = parseFloat(document.getElementById("ph").value);
+    let crop = document.getElementById("crop").value;
+
+    let recommendation = "";
+
+    // Basic AI rule-based logic
+    if (n < 50) {
+        recommendation = "Urea (Nitrogen Deficiency)";
+    }
+    else if (p < 30) {
+        recommendation = "DAP (Phosphorus Deficiency)";
+    }
+    else if (k < 40) {
+        recommendation = "MOP (Potassium Deficiency)";
+    }
+    else if (ph < 6) {
+        recommendation = "Lime Application (Low pH Soil)";
+    }
+    else if (ph > 7.5) {
+        recommendation = "Gypsum (High pH Soil)";
+    }
+    else {
+        recommendation = "NPK 20-20-20 (Balanced Fertilizer)";
+    }
+
+    // Crop-based suggestion
+    if (crop === "rice") {
+        recommendation += " | Suitable for Rice";
+    }
+    else if (crop === "wheat") {
+        recommendation += " | Suitable for Wheat";
+    }
+    else if (crop === "maize") {
+        recommendation += " | Suitable for Maize";
+    }
+    else if (crop === "cotton") {
+        recommendation += " | Suitable for Cotton";
+    }
+    else if (crop === "sugarcane") {
+        recommendation += " | Suitable for Sugarcane";
+    }
+
+    document.getElementById("result").innerHTML =
+        "Recommended Fertilizer: " + recommendation;
+}
